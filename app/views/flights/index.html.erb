@@ -1,0 +1,20 @@
+<h1>Flights</h1>
+
+<%= form_tag("/", method: :get) do %>
+  <%= label_tag(:departure_flight_id, "From:") %>
+  <%= select_tag(:departure_flight_id, 
+                 options_for_select(@airports, @departure_flight_id)) %>
+
+  <%= label_tag(:arrival_flight_id, "To:") %>
+  <%= select_tag(:arrival_flight_id, 
+                 options_for_select(@airports, @arrival_flight_id)) %>
+
+  <%= label_tag(:flight_time, "Date:") %>
+  <%= select_tag(:flight_time, 
+                 options_for_select(@dates, @flight_time)) %>
+
+  <%= label_tag(:passengers, "Travelers:") %>
+  <%= select_tag(:passengers, options_for_select([1,2,3,4])) %>
+
+  <%= submit_tag("Search") %>
+<% end %>
