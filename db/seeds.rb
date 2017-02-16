@@ -13,12 +13,11 @@ airports = Airport.create([
 
 
 # Flights
-flight_times = []
 20.times do
   departing_airport = rand(0..8)
   arriving_airport = rand(0..8)
-  until ending_airport != departing_airport
-    ending_airport = rand(0..8)
+  until arriving_airport != departing_airport
+    arriving_airport = rand(0..8)
   end
   Flight.create(departure_airport_id: departing_airport,
                 arrival_airport_id: arriving_airport,
