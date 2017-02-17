@@ -13,15 +13,15 @@ airports = Airport.create([
 
 
 # Flights
-20.times do
-  departing_airport = rand(0..8)
-  arriving_airport = rand(0..8)
+60.times do
+  departing_airport = rand(1..9)
+  arriving_airport = rand(1..9)
   until arriving_airport != departing_airport
-    arriving_airport = rand(0..8)
+    arriving_airport = rand(1..9)
   end
   Flight.create(departure_airport_id: departing_airport,
                 arrival_airport_id: arriving_airport,
-                flight_time: Faker::Time.forward(100),
+                flight_time: Faker::Time.forward(30),
                 flight_duration: "#{rand(0..18)} hrs #{rand(0..59)} mins")
 end
 

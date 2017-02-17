@@ -1,20 +1,47 @@
 <h1>Flights</h1>
 
 <%= form_tag("/", method: :get) do %>
-  <%= label_tag(:departure_flight_id, "From:") %>
-  <%= select_tag(:departure_flight_id, 
-                 options_for_select(@airports, @departure_flight_id)) %>
+  <%= label_tag(:departure_airport_id, "From:") %>
+  <%= select_tag(:departure_airport_id, 
+                 options_for_select(@airports, params[:departure_airport_id])) %>
 
-  <%= label_tag(:arrival_flight_id, "To:") %>
-  <%= select_tag(:arrival_flight_id, 
-                 options_for_select(@airports, @arrival_flight_id)) %>
+  <%= label_tag(:arrival_airport_id, "To:") %>
+  <%= select_tag(:arrival_airport_id, 
+                 options_for_select(@airports, params[:arrival_airport_id])) %>
 
-  <%= label_tag(:flight_time, "Date:") %>
-  <%= select_tag(:flight_time, 
-                 options_for_select(@dates, @flight_time)) %>
+  <%= label_tag(:date, "Date:") %>
+  <%= select_tag(:date, 
+                 options_for_select(@dates, params[:date])) %>
 
   <%= label_tag(:passengers, "Travelers:") %>
-  <%= select_tag(:passengers, options_for_select([1,2,3,4])) %>
+  <%= select_tag(:passengers, options_for_select([1,2,3,4], params[:passengers])) %>
 
   <%= submit_tag("Search") %>
+<% end %>
+
+<% if @flights && @flights.any? %>
+  Flights from
+  <%= @flights[0].departure_airport.code %> to
+  <%= @flights[0].arrival_airport.code %> on
+  <%= params[:date] %>
+
+  <% @flights.each do |flight| %>
+    <%= form_tag("bookings/new", method: :get) do %>
+      <table>
+        <th>
+          <td>Departure Time</td>
+          <td>Flight Duration</td>
+        </th>
+        <tr>
+          <td><%= radio_button_tag(:flight_id, flight.id) %></td>
+          <td><%= flight.flight_time.strftime("%H:%M %Z") %></td>
+          <td><%= flight.flight_duration %></td>
+        </tr>
+      </table>
+      <%= submit_tag("Continue") %>
+      <%= hidden_field_tag(:passengers, params[:passengers]) %>
+    <% end %>
+  <% end %>
+<% else %>
+  No flights found
 <% end %>
