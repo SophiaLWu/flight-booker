@@ -1,0 +1,34 @@
+<h1>Your Flight</h1>
+
+<h3>Flight Information</h3>
+<p>
+Departure date/time:
+<%= @booking.flight.flight_time %>
+</p>
+
+<p>
+Departure from:
+<%= @booking.flight.departure_airport.code %>
+</p>
+
+<p>
+Arriving at:
+<%= @booking.flight.arrival_airport.code %>
+</p>
+
+<p>
+Flight duration:
+<%= @booking.flight.flight_duration %>
+</p>
+
+<p>
+Flight number:
+<%= @booking.flight_id %>
+</p>
+
+<h3>Passenger Information</h3>
+<% @booking.passengers.each_with_index do |passenger, i| %>
+  <p><b>Passenger <%= i + 1 %></b></p>
+  <p><%= passenger.name %></p>
+  <p><%= passenger.email %></p>
+<% end %>

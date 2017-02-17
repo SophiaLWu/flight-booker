@@ -1,0 +1,43 @@
+<h1>Book your flight</h1>
+
+<p>
+Flight date/time:
+<%= @flight.flight_time %>
+
+<p>
+Departing at:
+<%= @flight.departure_airport.code %>
+</p>
+
+<p>
+Arriving at:
+<%= @flight.arrival_airport.code %>
+</p>
+
+<p>
+Flight duration:
+<%= @flight.flight_duration %>
+</p>
+
+<p>
+Flight number:
+<%= @flight.id %>
+</p>
+
+<h2>Passenger Information</h2>
+
+<%= form_for @booking do |f| %>
+  <% p = 1 %>
+  <%= f.fields_for :passengers do |information| %>
+    <b>Passenger <%= p %></b>
+    <%= information.label :name %>
+    <%= information.text_field :name %>
+
+    <%= information.label :email %>
+    <%= information.email_field :email %>
+    <% p += 1 %>
+  <% end %>
+
+  <%= f.hidden_field(:flight_id, :value => @flight.id) %>
+  <%= f.submit %>
+<% end %>
