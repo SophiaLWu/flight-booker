@@ -1,0 +1,44 @@
+<!DOCTYPE.html>
+<html>
+  <head>
+    <meta content='text/html; charset=URF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>
+      Thanks for booking a flight on Flight Booker, <%= @passenger.name %>.
+    </h1>
+    <p>You have successfully booked your flight.</p>
+    <h3>Flight details:</h3>
+    <p>
+      Departure date/time:
+      <%= @passenger.booking.flight.flight_time %>
+    </p>
+    <p>
+      Departure from:
+      <%= @passenger.booking.flight.departure_airport.code %>
+    </p>
+    <p>
+      Arriving at:
+      <%= @passenger.booking.flight.arrival_airport.code %>
+    </p>
+
+    <p>
+      Flight duration:
+      <%= @passenger.booking.flight.flight_duration %>
+    </p>
+
+    <p>
+      Flight number:
+      <%= @passenger.booking.flight_id %>
+    </p>
+
+    <h3>Passenger Information:</h3>
+    <% @passenger.booking.passengers.each_with_index do |passenger, i| %>
+      <p><b>Passenger <%= i + 1 %></b></p>
+      <p><%= passenger.name %></p>
+      <p><%= passenger.email %></p>
+    <% end %>
+
+    <h2>Have a great trip!</h2>
+  </body>
+</html>

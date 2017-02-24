@@ -1,0 +1,33 @@
+Thanks for booking a flight on Flight Booker, <%= @passenger.name %>.
+===================================================================
+
+You have successfully booked your flight. 
+
+
+Flight details:
+
+Departure date/time:
+<%= @passenger.booking.flight.flight_time %>
+
+Departure from:
+<%= @passenger.booking.flight.departure_airport.code %>
+
+Arriving at:
+<%= @passenger.booking.flight.arrival_airport.code %>
+
+Flight duration:
+<%= @passenger.booking.flight.flight_duration %>
+
+Flight number:
+<%= @passenger.booking.flight_id %>
+
+
+Passenger Information:
+<% @passenger.booking.passengers.each_with_index do |passenger, i| %>
+  Passenger <%= i + 1 %>
+  <%= passenger.name %>
+  <%= passenger.email %>
+<% end %>
+
+
+Have a great trip!
