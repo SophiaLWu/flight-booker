@@ -1,34 +1,51 @@
-<h1>Your Flight</h1>
+<div class="page-title"><h1>Your Flight</h1></div>
 
-<h3>Flight Information</h3>
-<p>
-Departure date/time:
-<%= @booking.flight.flight_time %>
-</p>
+<div class="box-title info-title"><h2>Flight Information</h2></div>
 
-<p>
-Departure from:
-<%= @booking.flight.departure_airport.code %>
-</p>
+<div class="box booking-flight-info">
+  <p>
+    <span>Flight date and time:</span>
+    <span><%= @booking.flight.flight_time %></span>
+  </p>
 
-<p>
-Arriving at:
-<%= @booking.flight.arrival_airport.code %>
-</p>
+  <p>
+    <span>Departing at:</span>
+    <span><%= @booking.flight.departure_airport.code %></span>
+  </p>
 
-<p>
-Flight duration:
-<%= @booking.flight.flight_duration %>
-</p>
+  <p>
+    <span>Arriving at:</span>
+    <span><%= @booking.flight.arrival_airport.code %></span>
+  </p>
 
-<p>
-Flight number:
-<%= @booking.flight_id %>
-</p>
+  <p>
+    <span>Flight duration:</span>
+    <span><%= @booking.flight.flight_duration %></span>
+  </p>
 
-<h3>Passenger Information</h3>
-<% @booking.passengers.each_with_index do |passenger, i| %>
-  <p><b>Passenger <%= i + 1 %></b></p>
-  <p><%= passenger.name %></p>
-  <p><%= passenger.email %></p>
-<% end %>
+  <p>
+    <span>Flight number:</span>
+    <span><%= @booking.flight.id %></span>
+  </p>
+
+</div>
+
+<div class="box-title info-title passenger-info-title">
+  <h2>Passenger Information</h2>
+</div>
+
+<div class="box booking-flight-info">
+  <% @booking.passengers.each_with_index do |passenger, i| %>
+    <div class="passenger-info">
+      <p class="passenger-name">Passenger <%= i + 1 %></p>
+      <p>
+        <span>Name:</span>
+        <span><%= passenger.name %></span>
+      </p>
+      <p>
+        <span>Email:</span>
+        <span><%= passenger.email %></span>
+      </p>
+    </div>
+  <% end %>
+</div>

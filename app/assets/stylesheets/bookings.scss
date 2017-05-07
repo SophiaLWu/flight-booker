@@ -1,3 +1,38 @@
 // Place all the styles related to the Bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.booking-flight-info >* {
+  margin-bottom: 10px;
+
+  span:first-child {
+    font-weight: bold;
+  }
+}
+
+.booking-flight-info p:last-child {
+  margin: 0;
+}
+
+.booking-form-header {
+  margin-top: 20px;
+}
+
+.passenger-info {
+  margin-bottom: 25px;
+}
+
+.passenger-name {
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.passenger-label {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.passenger-info-title {
+  margin-top: 35px;
+}

@@ -1,0 +1,83 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+}
+
+html, body {
+  min-height: 100%;
+  background: #9fb9c6;
+  font-family: 'Amaranth', sans-serif;
+  font-size: 18px;
+}
+
+.btn {
+  padding: 5px;
+  background: #ededed;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px gray;
+  font-size: 14px;
+  font-family: 'Amaranth', sans-serif;
+}
+
+.btn:hover {
+  background: #e2e2e2;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+.navbar {
+  display: fixed;
+  padding: 15px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.box {
+  display: inline-block;
+  min-width: 610px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px gray;
+  background: #fff;
+}
+
+.box div:last-child {
+  margin: 0;
+}
+
+.box-title {
+  margin-bottom: 5px;
+}
+
+.page-title {
+  margin-bottom: 20px;
+}

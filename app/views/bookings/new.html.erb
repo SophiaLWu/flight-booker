@@ -1,43 +1,56 @@
-<h1>Book your flight</h1>
+<div class="page-title"><h1>Book Your Flight</h1></div>
 
-<p>
-Flight date/time:
-<%= @flight.flight_time %>
+<div class="box-title booking-form-header"><h3>Flight Information</h3></div>
+<div class="box booking-flight-info">
+  <p>
+    <span>Flight date and time:</span>
+    <span><%= @flight.flight_time %></span>
+  </p>
 
-<p>
-Departing at:
-<%= @flight.departure_airport.code %>
-</p>
+  <p>
+    <span>Departing at:</span>
+    <span><%= @flight.departure_airport.code %></span>
+  </p>
 
-<p>
-Arriving at:
-<%= @flight.arrival_airport.code %>
-</p>
+  <p>
+    <span>Arriving at:</span>
+    <span><%= @flight.arrival_airport.code %></span>
+  </p>
 
-<p>
-Flight duration:
-<%= @flight.flight_duration %>
-</p>
+  <p>
+    <span>Flight duration:</span>
+    <span><%= @flight.flight_duration %></span>
+  </p>
 
-<p>
-Flight number:
-<%= @flight.id %>
-</p>
+  <p>
+    <span>Flight number:</span>
+    <span><%= @flight.id %></span>
+  </p>
+</div>
 
-<h2>Passenger Information</h2>
+<div class="box-title booking-form-header"><h3>Passenger Information</h3></div>
 
-<%= form_for @booking do |f| %>
-  <% p = 1 %>
-  <%= f.fields_for :passengers do |information| %>
-    <b>Passenger <%= p %></b>
-    <%= information.label :name %>
-    <%= information.text_field :name %>
+<div class="booking-form box">
+  <%= form_for @booking do |f| %>
+    <% p = 1 %>
+    <%= f.fields_for :passengers do |information| %>
+      <div class="passenger-info">
+        <p class="passenger-name">Passenger <%= p %></p>
+        <p class="passenger-label">
+          <%= information.label :name, "Name:" %>
+          <%= information.text_field :name, :required => true %>
+        </p>
 
-    <%= information.label :email %>
-    <%= information.email_field :email %>
-    <% p += 1 %>
+        <p class="passenger-label">
+          <%= information.label :email, "Email:" %>
+          <%= information.email_field :email, :required => true %>
+        </p>
+      </div>
+
+      <% p += 1 %>
+    <% end %>
+
+    <%= f.hidden_field(:flight_id, :value => @flight.id) %>
+    <%= f.submit "Submit", :class => "btn" %>
   <% end %>
-
-  <%= f.hidden_field(:flight_id, :value => @flight.id) %>
-  <%= f.submit %>
-<% end %>
+</div>
