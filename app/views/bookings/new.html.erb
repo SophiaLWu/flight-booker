@@ -51,6 +51,11 @@
     <% end %>
 
     <%= f.hidden_field(:flight_id, :value => @flight.id) %>
-    <%= f.submit "Submit", :class => "btn" %>
+    <%= f.submit "Submit", :class => "btn", 
+                           :data => {disable_with: "Submitting..." }%>
   <% end %>
+</div>
+
+<div class="back-btn">
+  <%= link_to "Back", 'javascript:history.go(-1);', :class => "btn" %>
 </div>

@@ -1,3 +1,5 @@
+<% content_for :body_class, "flights-index" %>
+
 <div class="page-title"><h1>Flights</h1></div>
 
 <div class="box" id="flight-search-form">
@@ -60,7 +62,8 @@
             </tr>
         <% end %>
       </table>
-      <%= submit_tag "Continue", :class => "btn" %>
+      <%= submit_tag "Continue", :class => "continue-btn btn", 
+                                 :data => {disable_with: "Loading..." } %>
       <%= hidden_field_tag(:passengers, params[:passengers]) %>
     <% end %>
     

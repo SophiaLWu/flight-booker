@@ -9,7 +9,7 @@ a {
 }
 
 a:visited {
-  color: #fff;
+  color: #000;
 }
 
 html, body {
@@ -28,11 +28,16 @@ html, body {
   box-shadow: 1px 1px 1px gray;
   font-size: 14px;
   font-family: 'Amaranth', sans-serif;
+  color: #000;
 }
 
 .btn:hover {
   background: #e2e2e2;
   cursor: pointer;
+}
+
+.back-btn {
+  margin-top: 20px;
 }
 
 h1 {
@@ -62,6 +67,11 @@ small {
   padding: 15px;
   background: #000;
   color: #fff;
+
+  a,
+  a:visited {
+    color: #fff;
+  }
 }
 
 footer {
