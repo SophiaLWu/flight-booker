@@ -8,6 +8,8 @@ class Flight < ApplicationRecord
   validates :flight_time, presence: true
   validates :flight_duration, presence: true
 
+  default_scope -> { order(flight_time: :asc) }
+
   def self.search_flights(params)
     date = DateTime.strptime(params[:date], "%m/%d/%Y")
     Flight.where(departure_airport_id: params[:departure_airport_id],
