@@ -13,7 +13,7 @@ airports = Airport.create([
 
 
 # Flights
-60.times do
+3000.times do
   departing_airport = rand(1..9)
   arriving_airport = rand(1..9)
   until arriving_airport != departing_airport
