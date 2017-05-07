@@ -45,24 +45,25 @@
       <% end %>
     </div>
 
-    <% @flights.each do |flight| %>
+    <table id="flights-table">
+      <th>
+        <td class="flights-table-header">Departure Time</td>
+        <td class="flights-table-header">Flight Duration</td>
+      </th>
       <%= form_tag("bookings/new", method: :get) do %>
-        <table id="flights-table">
-          <th>
-            <td class="flights-table-header">Departure Time</td>
-            <td class="flights-table-header">Flight Duration</td>
-          </th>
+        <% @flights.each do |flight| %>
           <tr>
             <td><%= radio_button_tag(:flight_id, flight.id, 
                                      required: "required") %></td>
             <td><%= flight.flight_time.strftime("%H:%M %Z") %></td>
             <td><%= flight.flight_duration %></td>
-          </tr>
-        </table>
-        <%= submit_tag "Continue", :class => "btn" %>
-        <%= hidden_field_tag(:passengers, params[:passengers]) %>
-      <% end %>
+            </tr>
+        <% end %>
+      </table>
+      <%= submit_tag "Continue", :class => "btn" %>
+      <%= hidden_field_tag(:passengers, params[:passengers]) %>
     <% end %>
+    
   <% else %>
     No flights found
   <% end %>
