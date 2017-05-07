@@ -1,8 +1,8 @@
 # FlightBooker
 
 This is a flight booking web app where users can search for one-way flights by
-entering in desired dates/airports, choose a flight, and enter passenger
-information for all passengers. The web app also sends a confirmation email to traveler for booking a flight.
+entering in desired airports and date, choose a flight, and enter passenger
+information for all passengers. The web app also sends a confirmation email for successful booking of a flight.
 
 See the app live [here](https://infinite-fortress-13459.herokuapp.com/).
 
