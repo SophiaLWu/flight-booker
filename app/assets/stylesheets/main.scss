@@ -14,7 +14,8 @@ a:visited {
 
 html, body {
   min-height: 100%;
-  background: #9fb9c6;
+  background: #f2f2f2;
+  text-align: center;
   font-family: 'Amaranth', sans-serif;
   font-size: 18px;
 }
@@ -46,17 +47,32 @@ h3 {
   font-size: 24px;
 }
 
+small {
+  font-size: 10px;
+}
+
 .navbar {
   display: fixed;
   padding: 15px;
   background: #000;
   color: #fff;
-  text-align: center;
+}
+
+footer {
+  margin-top: 30px;
 }
 
 .container {
   margin-top: 20px;
-  margin-left: 20px;
+}
+
+.wrapper {
+  display: inline-block;
+  padding: 20px 40px 40px 40px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px gray;
+  background: #9fb9c6;
 }
 
 .box {
@@ -67,7 +83,7 @@ h3 {
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 2px 2px 2px gray;
-  background: #fff;
+  background: #f2f2f2;
 }
 
 .box div:last-child {
@@ -79,5 +95,5 @@ h3 {
 }
 
 .page-title {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
