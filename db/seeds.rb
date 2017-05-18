@@ -18,8 +18,8 @@ all_flight_possibilities = (1..9).to_a.product((1..9).to_a)
                                       .reject { |pair| pair[0] == pair[1] }
 all_flight_possibilities.each do |airports|
   d = 0
-  num_flights = rand(2..8)
-  until d == 30
+  num_flights = rand(2..4)
+  until d == 15
     num_flights.times do
       Flight.create(departure_airport_id: airports[0],
                 arrival_airport_id: airports[1],
